@@ -1,4 +1,5 @@
 Summary:	Exim SpamAssassin at SMTP time
+Summary(pl):	SpamAssassin dla Exima dzia³aj±cy w czasie SMTP
 Name:		sa-exim
 Version:	4.2
 Release:	1
@@ -12,6 +13,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Exim SpamAssassin at SMTP time.
+
+%description -l pl
+SpamAssassin dla Exima dzia³aj±cy w czasie SMTP.
 
 %prep
 %setup -q
@@ -30,7 +34,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir}/mail,%{_libdir}/exim}
 
 install sa-exim-*.so $RPM_BUILD_ROOT%{_libdir}/exim/%{name}.so
-install sa-exim.conf $RPM_BUILD_ROOT/%{_sysconfdir}/mail/sa-exim.conf
+install sa-exim.conf $RPM_BUILD_ROOT%{_sysconfdir}/mail/sa-exim.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
