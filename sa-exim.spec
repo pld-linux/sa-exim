@@ -3,9 +3,10 @@ Summary(pl):	SpamAssassin dla Exima dzia³aj±cy w czasie SMTP
 Name:		sa-exim
 Version:	4.2
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Networking/Daemons
 Source0:	http://marc.merlins.org/linux/exim/files/%{name}-%{version}.tar.gz
+# Source0-md5:	ad76f73c6b3d01caa88078e3e622745a
 URL:		http://marc.merlins.org/linux/exim/sa.html
 BuildRequires:	exim-devel
 Requires:	exim >= 2:4.52-4
