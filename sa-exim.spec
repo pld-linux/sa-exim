@@ -1,15 +1,16 @@
 Summary:	Exim SpamAssassin at SMTP time
 Summary(pl):	SpamAssassin dla Exima dzia³aj±cy w czasie SMTP
 Name:		sa-exim
-Version:	4.2
-Release:	1
+Version:	4.2.1
+Release:	0.1
 License:	GPL v2
 Group:		Networking/Daemons
 Source0:	http://marc.merlins.org/linux/exim/files/%{name}-%{version}.tar.gz
-# Source0-md5:	ad76f73c6b3d01caa88078e3e622745a
+# Source0-md5:	69268a81af366bc1b3e0c86000aed7db
 URL:		http://marc.merlins.org/linux/exim/sa.html
 BuildRequires:	exim-devel
 Requires:	exim >= 2:4.52-4
+BuildRequires:	/usr/bin/links
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,8 +25,6 @@ SpamAssassin dla Exima dzia³aj±cy w czasie SMTP.
 %build
 %{__make} \
 	SACONF="/etc/mail/sa-exim.conf" \
-	EXIM_SRC_LOCAL="%{_includedir}/exim" \
-	EXIM_SRC="%{_includedir}/exim" \
 	LDFLAGS="-shared -fPIC %{rpmldflags}" \
 	CC="%{__cc}"
 %{__make}
