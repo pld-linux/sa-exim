@@ -8,9 +8,9 @@ Group:		Networking/Daemons
 Source0:	http://marc.merlins.org/linux/exim/files/%{name}-%{version}.tar.gz
 # Source0-md5:	69268a81af366bc1b3e0c86000aed7db
 URL:		http://marc.merlins.org/linux/exim/sa.html
+BuildRequires:	/usr/bin/links
 BuildRequires:	exim-devel
 Requires:	exim >= 2:4.52-4
-BuildRequires:	/usr/bin/links
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,7 +24,7 @@ SpamAssassin dla Exima dzia³aj±cy w czasie SMTP.
 
 %build
 %{__make} \
-	SACONF="/etc/mail/sa-exim.conf" \
+SACONF="%{_sysconfdir}/mail/sa-exim.conf" \
 	LDFLAGS="-shared -fPIC %{rpmldflags}" \
 	CC="%{__cc}"
 %{__make}
@@ -42,5 +42,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc contrib/*.txt ACKNOWLEDGEMENTS CHANGELOG README* TODO
-%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/sa-exim.conf
+%attr(640,root,exim) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/sa-exim.conf
 %attr(755,root,root) %{_libdir}/exim/%{name}.so
+%dir  /var/spool/sa-exim/
