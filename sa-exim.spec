@@ -1,5 +1,5 @@
 Summary:	Exim SpamAssassin at SMTP time
-Summary(pl):	SpamAssassin dla Exima dzia³aj±cy w czasie SMTP
+Summary(pl.UTF-8):   SpamAssassin dla Exima dziaÅ‚ajÄ…cy w czasie SMTP
 Name:		sa-exim
 Version:	4.2.1
 Release:	0.1
@@ -16,8 +16,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Exim SpamAssassin at SMTP time.
 
-%description -l pl
-SpamAssassin dla Exima dzia³aj±cy w czasie SMTP.
+%description -l pl.UTF-8
+SpamAssassin dla Exima dziaÅ‚ajÄ…cy w czasie SMTP.
 
 %prep
 %setup -q
