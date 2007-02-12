@@ -1,5 +1,5 @@
 Summary:	Exim SpamAssassin at SMTP time
-Summary(pl.UTF-8):   SpamAssassin dla Exima działający w czasie SMTP
+Summary(pl.UTF-8):	SpamAssassin dla Exima działający w czasie SMTP
 Name:		sa-exim
 Version:	4.2.1
 Release:	0.1
