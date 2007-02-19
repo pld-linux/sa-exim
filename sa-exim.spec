@@ -26,12 +26,13 @@ SpamAssassin dla Exima działający w czasie SMTP.
 %{__make} \
 SACONF="%{_sysconfdir}/mail/sa-exim.conf" \
 	LDFLAGS="-shared -fPIC %{rpmldflags}" \
-	CC="%{__cc}"
-%{__make}
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
+%{__make} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir}/mail,%{_libdir}/exim}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/mail,%{_libdir}/exim,%{_var}/spool/sa-exim}
 
 install sa-exim-*.so $RPM_BUILD_ROOT%{_libdir}/exim/%{name}.so
 install sa-exim.conf $RPM_BUILD_ROOT%{_sysconfdir}/mail/sa-exim.conf
@@ -44,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc contrib/*.txt ACKNOWLEDGEMENTS CHANGELOG README* TODO
 %attr(640,root,exim) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/sa-exim.conf
 %attr(755,root,root) %{_libdir}/exim/%{name}.so
-%dir  /var/spool/sa-exim/
+%dir %{_var}/spool/sa-exim
