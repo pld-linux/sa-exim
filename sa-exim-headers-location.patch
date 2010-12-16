@@ -1,0 +1,18 @@
+diff -Naur sa-exim-4.2.1/Makefile sa-exim-4.2.1-p/Makefile
+--- sa-exim-4.2.1/Makefile	2006-01-11 18:21:58.000000000 +0100
++++ sa-exim-4.2.1-p/Makefile	2010-12-16 15:07:12.000000000 +0100
+@@ -18,12 +18,11 @@
+ # I place the directory in exim/debian/local_scan. Adjust the path as needed
+ # Actually, we will also look for the versions supplied with this source
+ # if we can't find the exim source
+-EXIM_SRC= ../../src
+-EXIM_SRC_LOCAL = ./eximinc
++EXIM_SRC= /usr/include/exim
+ SUFF=-$(VERSION)
+ 
+ SAFLAGS=-DSPAMASSASSIN_CONF=\"$(SACONF)\" -DSPAMC_LOCATION=\"$(SPAMC)\"
+-BUILDCFLAGS=-I$(EXIM_SRC) -I$(EXIM_SRC_LOCAL) -DDLOPEN_LOCAL_SCAN $(SAFLAGS) $(CFLAGS)
++BUILDCFLAGS=-I$(EXIM_SRC) -DDLOPEN_LOCAL_SCAN $(SAFLAGS) $(CFLAGS)
+ 
+ SONAME=$(subst .so,$(SUFF).so,sa-exim.so)
+ 
